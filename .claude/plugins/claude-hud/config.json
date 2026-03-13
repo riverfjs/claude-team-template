@@ -1,0 +1,28 @@
+{
+  "lineLayout": "expanded",
+  "showSeparators": true,
+  "pathLevels": 3,
+  "gitStatus": {
+    "enabled": true,
+    "showDirty": true,
+    "showAheadBehind": true,
+    "showFileStats": true
+  },
+  "display": {
+    "showModel": true,
+    "showProject": true,
+    "showContextBar": true,
+    "contextValue": "percent",
+    "showConfigCounts": true,
+    "showDuration": true,
+    "showSpeed": true,
+    "showTokenBreakdown": true,
+    "showUsage": true,
+    "usageBarEnabled": true,
+    "showTools": true,
+    "showAgents": true,
+    "showTodos": true,
+    "showSessionName": true,
+    "autocompactBuffer": "enabled"
+  }
+}

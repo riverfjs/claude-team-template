@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "plugins": {
+    "claude-hud@claude-hud": [
+      {
+        "scope": "project",
+        "installPath": "plugins/cache/claude-hud/claude-hud/0.0.9",
+        "version": "0.0.9",
+        "installedAt": "2026-03-13T00:00:00.000Z",
+        "lastUpdated": "2026-03-13T00:00:00.000Z",
+        "gitCommitSha": "c02787bf0e5f020c627c1d13076385cc8d32f2ed"
+      }
+    ]
+  }
+}
+

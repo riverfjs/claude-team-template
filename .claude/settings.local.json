@@ -1,0 +1,34 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "mcp__*"
+    ],
+    "deny": []
+  },
+  "teammateMode": "tmux",
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'node \"$(ls -td ${CLAUDE_CONFIG_DIR:-.claude}/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\" 2>/dev/null || true'"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/init-check.sh 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -23,10 +23,8 @@ workspace/
 # Claude Code runtime state (machine-local)
 .claude.json
 backups/
-cache/
 file-history/
 history.jsonl
-plugins/
 projects/
 tasks/
 telemetry/
@@ -34,3 +32,14 @@ workspace.zip
 session-env/
 shell-snapshots/
 *.log
+
+# Claude runtime cache (exclude plugin cache — it's bundled)
+.claude/cache/
+cache/
+
+# Force-include project config (may be excluded by global gitignore)
+!.claude/settings.local.json
+.claude/plugins/blocklist.json
+.claude/plugins/install-counts-cache.json
+.claude/plugins/known_marketplaces.json
+.claude/plugins/marketplaces/

@@ -21,10 +21,10 @@ Clone this repo and start Claude with the project config:
 ```bash
 git clone git@github.com:riverfjs/claude-team-template.git my-project
 cd my-project
-CLAUDE_CONFIG_DIR=. CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
+CLAUDE_CONFIG_DIR=.claude CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 ```
 
-> `CLAUDE_CONFIG_DIR=.` tells Claude to load `.claude/` from this directory instead of `~/.claude/`, so the agents and settings here take effect without touching your global config.
+> `CLAUDE_CONFIG_DIR=.claude` tells Claude to use `.claude/` as its config directory instead of `~/.claude/`, so agents, settings, and plugins here take effect without touching your global config.
 
 The `.claude/` directory (with all agents) is already included — no additional setup needed.
 
