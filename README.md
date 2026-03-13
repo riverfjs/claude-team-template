@@ -1,6 +1,6 @@
-# template-agenticide-vibecoding
+# claude-team-template
 
-A Claude Code multi-agent team template. Clone it, open it, start building — the agents handle everything else.
+A Claude Code multi-agent team template. Clone it, configure environment variables, start building — the agents handle everything else.
 
 ## How it works
 
@@ -16,13 +16,19 @@ No slash commands to remember. No "should I start a team?" — it just does it.
 
 ## Setup
 
+Clone this repo and start Claude with the project config:
+
 ```bash
-git clone https://github.com/quboqin/template-agenticide-vibecoding.git
-cd template-agenticide-vibecoding
-claude .
+git clone git@github.com:riverfjs/claude-team-template.git my-project
+cd my-project
+CLAUDE_CONFIG_DIR=. CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 ```
 
-That's it. On first prompt, the `UserPromptSubmit` hook automatically:
+> `CLAUDE_CONFIG_DIR=.` tells Claude to load `.claude/` from this directory instead of `~/.claude/`, so the agents and settings here take effect without touching your global config.
+
+The `.claude/` directory (with all agents) is already included — no additional setup needed.
+
+On first prompt, the `UserPromptSubmit` hook automatically:
 - Creates `workspace/` subdirectories
 - Installs missing MCP servers (context7, sequential, magic, playwright)
 
@@ -65,6 +71,7 @@ workspace/
 
 - Claude Code
 - Node.js ≥ 18
+
 
 ## License
 
