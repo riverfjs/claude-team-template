@@ -7,7 +7,7 @@ A Claude Code multi-agent team template. Clone it and start building — agents,
 ```bash
 git clone git@github.com:riverfjs/claude-team-template.git my-project
 cd my-project
-CLAUDE_CONFIG_DIR=.claude CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
+CLAUDE_CONFIG_DIR=.claude claude
 ```
 
 Then use the `/build` command to start:
