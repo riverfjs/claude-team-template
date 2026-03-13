@@ -1,6 +1,6 @@
 # claude-team-template
 
-A Claude Code multi-agent team template. Clone it, configure environment variables, start building — the agents handle everything else.
+A Claude Code multi-agent team template. Clone it and start building — agents, MCP servers, and HUD are all pre-configured.
 
 ## How it works
 
@@ -16,21 +16,19 @@ No slash commands to remember. No "should I start a team?" — it just does it.
 
 ## Setup
 
-Clone this repo and start Claude with the project config:
-
 ```bash
 git clone git@github.com:riverfjs/claude-team-template.git my-project
 cd my-project
 CLAUDE_CONFIG_DIR=.claude CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 ```
 
-> `CLAUDE_CONFIG_DIR=.claude` tells Claude to use `.claude/` as its config directory instead of `~/.claude/`, so agents, settings, and plugins here take effect without touching your global config.
+> `CLAUDE_CONFIG_DIR=.claude` tells Claude to use `.claude/` as its config directory instead of `~/.claude/`, so agents, settings, plugins, and MCP servers all take effect without touching your global config.
 
-The `.claude/` directory (with all agents) is already included — no additional setup needed.
-
-On first prompt, the `UserPromptSubmit` hook automatically:
-- Creates `workspace/` subdirectories
-- Installs missing MCP servers (context7, sequential, magic, playwright)
+Everything is pre-configured out of the box:
+- **Agents** — all 7 specialist agents ready to go
+- **MCP servers** — context7, sequential, magic, playwright pre-configured
+- **Claude HUD** — real-time statusline showing context, agents, todos
+- **Workspace** — `workspace/` subdirectories created on first prompt
 
 ## Agents
 
