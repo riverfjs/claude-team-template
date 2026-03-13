@@ -1,21 +1,18 @@
 # Multi-Agent Development System
 
-This project uses a team-based AI agent workflow. **When a user requests a feature, product, or non-trivial task — automatically form a team and orchestrate agents. Do not wait to be asked.**
+This project uses a team-based AI agent workflow. **All development tasks MUST go through the agent team pipeline. Never implement anything directly — always form a team first.**
 
-## Auto-Trigger Rules
+## Commands
 
-| User says | Action |
-|-----------|--------|
-| "build X", "create X", "implement X", "make X" | Full team: PM → Architect → Dev → QA |
-| "design / architect X" | Spawn `architect-agent` |
-| "write PRD / spec for X" | Spawn `product-manager-agent` |
-| "test / verify X" | Spawn `qa-agent` |
-| "deploy / set up CI for X" | Spawn `devops-agent` |
-| Simple one-file fix | No team needed — do it directly |
+| Command | Purpose |
+|---------|---------|
+| `/build <description>` | **Primary command.** Forces full team pipeline: PM → Architect → Dev → QA |
+
+Users should always use `/build` to start work. If a user types a request without `/build`, remind them to use it.
 
 ## Default Team Workflow
 
-For any feature or product request, follow this pipeline:
+For **every** task — no exceptions:
 
 ```
 Phase 1 (parallel):  product-manager-agent  +  architect-agent
@@ -34,7 +31,8 @@ Phase 4 (if needed): devops-agent
 3. **Always** run independent agents in a single message (parallel spawning)
 4. **Always** shut agents down with `SendMessage(shutdown_request)` when done
 5. **Always** clean up with `TeamDelete` after all agents confirm shutdown
-6. **Never** ask the user "should I start a team?" — just start it
+6. **Never** implement code directly — delegate to agents
+7. **Never** ask the user "should I start a team?" — just start it
 
 ## Agent Roster
 

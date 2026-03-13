@@ -2,19 +2,7 @@
 
 Claude Code 多智能体团队模板。Clone 即用，无需任何额外配置 — Agent、MCP、HUD 全部预置。
 
-## 工作原理
-
-当你描述一个功能或产品需求，Claude 自动：
-
-1. 组建团队（`TeamCreate`）
-2. 并行启动 **product-manager-agent** + **architect-agent**
-3. 两者完成后，并行启动 **frontend-agent** + **backend-agent**（按需）
-4. 运行 **qa-agent** 验证并修复 bug
-5. 关闭所有 agent，清理资源
-
-不需要记任何 slash command，不需要问"要不要启动团队" — 直接开始。
-
-## 使用方式
+## 快速开始
 
 ```bash
 git clone git@github.com:riverfjs/claude-team-template.git my-project
@@ -22,13 +10,36 @@ cd my-project
 CLAUDE_CONFIG_DIR=.claude CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 ```
 
+启动后用 `/build` 命令开始：
+
+```
+/build a simple todo web app with user auth
+```
+
 > `CLAUDE_CONFIG_DIR=.claude` 让 Claude 使用项目内的 `.claude/` 作为配置目录，而不是 `~/.claude/`，agent、设置、插件、MCP 全部在项目内生效，不影响全局配置。
 
-开箱即用，已预置：
-- **7 个专属 Agent** — 开箱即用
-- **MCP 服务** — context7、sequential、magic、playwright 已配置
-- **Claude HUD** — 实时状态栏，显示上下文用量、agent 状态、待办进度
-- **工作区** — 首次 prompt 时自动创建 `workspace/` 子目录
+## 使用方式
+
+| 命令 | 说明 |
+|------|------|
+| `/build <任务描述>` | 启动完整 Agent 团队完成任务。这是使用此模板的主要方式。|
+
+`/build` 命令强制走完整团队流水线，无论任务大小：
+
+```
+Phase 1（并行）:  product-manager → PRD    +  architect → 技术方案
+Phase 2（并行）:  frontend → UI 代码       +  backend → API 代码
+Phase 3:          qa → 验证并修复
+Phase 4（可选）:  devops → 部署
+```
+
+## 开箱即用
+
+以下全部预配置好，无需额外设置：
+- **7 个专属 Agent** — PM、架构师、前端、后端、运维、QA、项目经理
+- **4 个 MCP 服务** — context7、sequential、magic、playwright
+- **Claude HUD** — 实时状态栏，显示上下文用量、Agent 状态、待办进度
+- **工作区** — 首次 prompt 时自动创建
 
 ## Agent 列表
 

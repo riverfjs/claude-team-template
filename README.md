@@ -2,19 +2,7 @@
 
 A Claude Code multi-agent team template. Clone it and start building — agents, MCP servers, and HUD are all pre-configured.
 
-## How it works
-
-When you describe a feature or product, Claude automatically:
-
-1. Forms a team (`TeamCreate`)
-2. Spawns **product-manager-agent** + **architect-agent** in parallel
-3. Once both finish, spawns **frontend-agent** + **backend-agent** (whichever is needed)
-4. Runs **qa-agent** to verify and fix bugs
-5. Shuts down all agents and cleans up
-
-No slash commands to remember. No "should I start a team?" — it just does it.
-
-## Setup
+## Quick Start
 
 ```bash
 git clone git@github.com:riverfjs/claude-team-template.git my-project
@@ -22,13 +10,36 @@ cd my-project
 CLAUDE_CONFIG_DIR=.claude CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 ```
 
+Then use the `/build` command to start:
+
+```
+/build a simple todo web app with user auth
+```
+
 > `CLAUDE_CONFIG_DIR=.claude` tells Claude to use `.claude/` as its config directory instead of `~/.claude/`, so agents, settings, plugins, and MCP servers all take effect without touching your global config.
 
-Everything is pre-configured out of the box:
-- **Agents** — all 7 specialist agents ready to go
-- **MCP servers** — context7, sequential, magic, playwright pre-configured
-- **Claude HUD** — real-time statusline showing context, agents, todos
-- **Workspace** — `workspace/` subdirectories created on first prompt
+## Usage
+
+| Command | Description |
+|---------|-------------|
+| `/build <task>` | Start a full agent team to build the task. This is the primary way to use this template. |
+
+The `/build` command forces the full team pipeline regardless of task size:
+
+```
+Phase 1 (parallel):  product-manager → PRD    +  architect → tech spec
+Phase 2 (parallel):  frontend → UI code       +  backend → API code
+Phase 3:             qa → verify & fix
+Phase 4 (optional):  devops → deploy
+```
+
+## What's Pre-configured
+
+Everything works out of the box — no additional setup:
+- **7 specialist agents** — PM, architect, frontend, backend, devops, QA, project manager
+- **4 MCP servers** — context7, sequential, magic, playwright
+- **Claude HUD** — real-time statusline showing context usage, agent status, todos
+- **Workspace** — auto-created on first prompt
 
 ## Agents
 
@@ -56,7 +67,7 @@ workspace/
 └── qa/                ← Test reports
 ```
 
-## MCP servers
+## MCP Servers
 
 | Server | Purpose |
 |--------|---------|
