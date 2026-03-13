@@ -1,0 +1,36 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Deps & build
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+*.py[cod]
+venv/
+.env*
+
+# Agent-generated workspace (recreated at runtime by hook)
+workspace/
+
+# Claude Code runtime state (machine-local)
+.claude.json
+backups/
+cache/
+file-history/
+history.jsonl
+plugins/
+projects/
+tasks/
+telemetry/
+workspace.zip
+session-env/
+shell-snapshots/
+*.log
