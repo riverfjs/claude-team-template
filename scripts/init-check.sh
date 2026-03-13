@@ -11,7 +11,7 @@ if command -v claude &>/dev/null; then
     INSTALLED=$(claude mcp list 2>/dev/null || echo "")
     MISSING=()
     for server in context7 sequential magic playwright; do
-        echo "$INSTALLED" | grep -q "^${server}" || MISSING+=("$server")
+        echo "$INSTALLED" | grep -qi "${server}" || MISSING+=("$server")
     done
 
     if [ ${#MISSING[@]} -gt 0 ]; then

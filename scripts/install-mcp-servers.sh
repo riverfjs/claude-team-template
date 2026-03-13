@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # MCP 服务器安装脚本
-# 根据 config/mcp-servers.yaml 安装所有 MCP 服务器到 Claude Code (user 全局作用域)
+# 安装到本项目的 .claude/settings.local.json，不污染全局 ~/.claude/
 
 set -e
 
@@ -42,7 +42,7 @@ install_mcp() {
     fi
 
     log_info "安装 ${name} (${package})..."
-    if claude mcp add "${name}" -s user -- npx -y "${package}" 2>&1; then
+    if claude mcp add "${name}" -s local -- npx -y "${package}" 2>&1; then
         log_ok "${name} 安装成功"
     else
         log_error "${name} 安装失败"
@@ -55,7 +55,7 @@ main() {
     echo ""
     echo "========================================="
     echo "  MCP 服务器安装脚本"
-    echo "  来源: config/mcp-servers.yaml"
+    echo "  来源: .claude/settings.local.json (project-local)"
     echo "========================================="
     echo ""
 
