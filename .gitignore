@@ -36,6 +36,7 @@ shell-snapshots/
 # Claude runtime cache (exclude plugin cache — it's bundled)
 .claude/cache/
 cache/
+!.claude/plugins/cache/
 
 # Force-include project config (may be excluded by global gitignore)
 !.claude/settings.local.json
