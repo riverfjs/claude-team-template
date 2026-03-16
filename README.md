@@ -81,7 +81,6 @@ workspace/
 - Claude Code
 - Node.js ≥ 18
 
-
 ## License
 
 MIT
